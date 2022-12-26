@@ -1,0 +1,21 @@
+class Solution {
+    public ListNode rotateRight(ListNode head, int k) {
+        if(head==null){
+            return head;
+        }
+        ListNode d=head; 
+        int c=1;
+        while(d.next!=null){
+            c++;
+            d=d.next;
+        }
+        d.next=head;
+        k=c-(k%c);
+        while(k-- >0){
+            d=d.next;
+        }
+        head=d.next;
+        d.next=null;
+        return head;
+    }
+}
